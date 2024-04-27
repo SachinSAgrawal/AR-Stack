@@ -56,10 +56,13 @@ I have created several apps for Fitbit Versa smartwatches, and I am also part of
 In my free time, I like to play the popular block-based videogame Minecraft, and post Minecraft videos on YouTube.
 
 #### Websites
-* [Primary](https://sachinagrawal.me)
-* [Fitbit](https://sagrawal8fitbit.dev)
-* [YouTube](https://scinovuscrafted.com)
-* [Discord](https://discord.com/users/575795042933932071)
+* Primary: [sachinagrawal.me](https://sachinagrawal.me)
+* Fitbit: [sagrawal8fitbit.dev](https://sagrawal8fitbit.dev)
+* YouTube [scinovuscrafted.com](https://scinovuscrafted.com)
+
+#### Contact
+* Email: [contact@sachin.email](mailto:contact@sachin.email)
+* Discord: [scinovuscrafted](https://discord.com/users/575795042933932071)
 
 ## License
 This package is licensed under the [Apache License](LICENSE.txt).
