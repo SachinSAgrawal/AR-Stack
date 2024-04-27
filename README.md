@@ -51,7 +51,9 @@ If you find any, feel free to open up a new issue or even better, create a pull 
 - [ ] If the app goes into a degraded tracking state after the `baseNode` has been added but before a game has started, it along with any other `planeNodes` will disappear. Once the tracking state becomes normal again, new `planeNodes` will spawn, but the `baseNode` will not be placed automatically. A workaround is to just hit the `Reset` button.
 
 ## Author
-I am a self-taught programmer who knows Swift, Objective/Arduino C, Python, JavaScript, HTML, CSS, LaTeX, PHP, Ruby, and Bash/Shell. I have created several apps for Fitbit Versa smartwatches, and I am also part of the Apple Developer Program. In my free time, I like to play the popular block-based videogame Minecraft, and post Minecraft videos on YouTube.
+I am a self-taught programmer who knows Swift, Objective/Arduino C, Python, JavaScript, HTML, CSS, LaTeX, PHP, Ruby, and Bash/Shell. 
+I have created several apps for Fitbit Versa smartwatches, and I am also part of the Apple Developer Program. 
+In my free time, I like to play the popular block-based videogame Minecraft, and post Minecraft videos on YouTube.
 
 #### Websites
 * [Primary](https://sachinagrawal.me)
