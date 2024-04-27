@@ -8,7 +8,7 @@ If you like this app or found it useful, I would appreciate if you starred it or
 I don't expect to work on this too much more, as it was my first venture into AR and I came back to it because I had some free time.
 
 ## Acknowledgments
-The bulk of this code was written by [Xander Xu](https://github.com/XanderXu/ARStack) or is from his tutorial. Because of the permissive free software license he included, I have taken the code and improved upon it. The basic functionality and logic is not mine, however, so most of the credit should go to him. If you would like to modify this app further, you are more than welcome to.
+The bulk of this code was written by [Xander Xu](https://github.com/XanderXu/ARStack) in his tutorial. Because of the permissive free software license he included, I have taken the code and improved upon it. The basic functionality and logic is not mine, however, so most of the credit should go to him. If you would like to modify this app further, you are more than welcome to, as the same license is included.
 
 ## Improvements
 * The app shows you all detected planes and allows you to move the game location to within any of them.
@@ -51,7 +51,29 @@ If you find any, feel free to open up a new issue or even better, create a pull 
 - [ ] If the app goes into a degraded tracking state after the `baseNode` has been added but before a game has started, it along with any other `planeNodes` will disappear. Once the tracking state becomes normal again, new `planeNodes` will spawn, but the `baseNode` will not be placed automatically. A workaround is to just hit the `Reset` button.
 
 ## Author
-[Sachin Agrawal](https://github.com/SachinSAgrawal) is a self-taught programmer who knows many languages and is into app, game, and web development.
+I am a self-taught programmer who knows Swift, Objective/Arduino C, Python, JavaScript, HTML, CSS, LaTeX, PHP, Ruby, and Bash/Shell. I have created several apps for Fitbit Versa smartwatches, and I am also part of the Apple Developer Program. In my free time, I like to play the popular block-based videogame Minecraft, and post Minecraft videos on YouTube.
+
+#### Websites
+* [Primary](https://sachinagrawal.me)
+* [Fitbit](https://sagrawal8fitbit.dev)
+* [YouTube](https://scinovuscrafted.com)
+* [Discord](https://discord.com/users/575795042933932071)
 
 ## License
 This package is licensed under the [Apache License](LICENSE.txt).
+
+```
+Copyright 2023-2024 Sachin Agrawal
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
