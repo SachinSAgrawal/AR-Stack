@@ -49,11 +49,11 @@ If you find any, feel free to open up a new issue or even better, create a pull 
 
 #### Known
 - [ ] Sounds are sometimes unreliable, which is partially why I added haptics.
-- [ ] The session information label may say that no planes have been detected even though some have been because the `trackingState` is update asynchronously from plane detection.
+- [ ] The session information label may say that no planes have been detected even though some have been because the `trackingState` is update asynchronously from plane detection when `Debug` is toggled on.
 - [ ] If the app goes into a degraded tracking state after the `baseNode` has been added but before a game has started, it along with any other `planeNodes` will disappear. Once the tracking state becomes normal again, new `planeNodes` will spawn, but the `baseNode` will not be placed automatically. A workaround is to just hit the `Reset` button.
 
 ## Author
-I'm a self-taught programmer who knows many languages. I'm into app, game, and web development. If you would like to contact me, my email is [github@sachin.email](mailto:github@sachin.email).
+I'm a self-taught programmer who knows many languages and I'm into app, game, and web development. If you would like to contact me, my email is [github@sachin.email](mailto:github@sachin.email).
 
 ## License
 This package is licensed under the [Apache License](LICENSE.txt).
