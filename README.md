@@ -22,6 +22,7 @@ The bulk of this code was written by [Xander Xu](https://github.com/XanderXu/ARS
 * The app now displays your high score in the top left. Can you beat my record of 51?
 * There is now an app icon, which I might have taken from the original Stack game.
 * The launch screen is a little bit nicer and the main screen takes up the full screen.
+* The app's settings have been update according to Xcode's recommendations.
 * The code itself has be commented fully with the help of ChatGPT, and `MARK` lines label each section.
 
 ## Installation
@@ -48,21 +49,11 @@ If you find any, feel free to open up a new issue or even better, create a pull 
 
 #### Known
 - [ ] Sounds are sometimes unreliable, which is partially why I added haptics.
+- [ ] The session information label may say that no planes have been detected even though some have been because the `trackingState` is update asynchronously from plane detection.
 - [ ] If the app goes into a degraded tracking state after the `baseNode` has been added but before a game has started, it along with any other `planeNodes` will disappear. Once the tracking state becomes normal again, new `planeNodes` will spawn, but the `baseNode` will not be placed automatically. A workaround is to just hit the `Reset` button.
 
 ## Author
-I am a self-taught programmer who knows Swift, Objective/Arduino C, Python, JavaScript, HTML, CSS, LaTeX, PHP, Ruby, and Bash/Shell. 
-I have created several apps for Fitbit Versa smartwatches, and I am also part of the Apple Developer Program. 
-In my free time, I like to play the popular block-based videogame Minecraft, and post Minecraft videos on YouTube.
-
-#### Websites
-* Primary: [sachinagrawal.me](https://sachinagrawal.me)
-* Fitbit: [sagrawal8fitbit.dev](https://sagrawal8fitbit.dev)
-* YouTube [scinovuscrafted.com](https://scinovuscrafted.com)
-
-#### Contact
-* Email: [contact@sachin.email](mailto:contact@sachin.email)
-* Discord: [scinovuscrafted](https://discord.com/users/575795042933932071)
+I'm a self-taught programmer who knows many languages. I'm into app, game, and web development. If you would like to contact me, my email is [github@sachin.email](mailto:github@sachin.email).
 
 ## License
 This package is licensed under the [Apache License](LICENSE.txt).
