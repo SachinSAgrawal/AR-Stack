@@ -3,9 +3,7 @@
 ![demo](demo.gif)
 
 ## About
-This app brings the popular game [Stack](https://apps.apple.com/us/app/stack/id1080487957) in the real world with Augmented Reality.
-If you like this app or found it useful, I would appreciate if you starred it or even shared it with your friends.
-I don't expect to work on this too much more, as it was my first venture into AR and I came back to it because I had some free time.
+This app brings the popular game [Stack](https://apps.apple.com/us/app/stack/id1080487957) in the real world with Augmented Reality. If you like this app or found it useful, I would appreciate if you starred it or even shared it with your friends. I don't expect to work on this too much more, as it was my first venture into AR and I came back to it because I had some free time.
 
 ## Acknowledgments
 The bulk of this code was written by [Xander Xu](https://github.com/XanderXu/ARStack) in his tutorial. Because of the permissive free software license he included, I have taken the code and improved upon it. The basic functionality and logic is not mine, however, so most of the credit should go to him. If you would like to modify this app further, you are more than welcome to, as the same license is included.
@@ -35,7 +33,7 @@ The bulk of this code was written by [Xander Xu](https://github.com/XanderXu/ARS
 Hopefully this goes without saying, but you need Xcode, which is only available on Macs.
 
 #### Notes
-You must connect a physical device to your computer to run this, as a simulator cannot run ARKit. <br>
+You must connect a physical device to your computer to run this, as a simulator does not support AR tracking. <br>
 The device must be either an iPhone or iPad running iOS 16.0 or newer.
 
 ## SDKs
@@ -52,8 +50,8 @@ If you find any, feel free to open up a new issue or even better, create a pull 
 - [ ] The session information label may say that no planes have been detected even though some have been because the `trackingState` is update asynchronously from plane detection when `Debug` is toggled on.
 - [ ] If the app goes into a degraded tracking state after the `baseNode` has been added but before a game has started, it along with any other `planeNodes` will disappear. Once the tracking state becomes normal again, new `planeNodes` will spawn, but the `baseNode` will not be placed automatically. A workaround is to just hit the `Reset` button.
 
-## Author
-I'm a self-taught programmer who knows many languages and I'm into app, game, and web development. If you would like to contact me, my email is [github@sachin.email](mailto:github@sachin.email).
+## Contributors
+Sachin Agrawal: I'm a self-taught programmer who knows many languages and I'm into app, game, and web development. For more information, check out my website or Github profile. If you would like to contact me, my email is [github@sachin.email](mailto:github@sachin.email).
 
 ## License
 This package is licensed under the [Apache License](LICENSE.txt).
