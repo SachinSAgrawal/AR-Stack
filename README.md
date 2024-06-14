@@ -50,6 +50,9 @@ If you find any, feel free to open up a new issue or even better, create a pull 
 - [ ] The session information label may say that no planes have been detected even though some have been because the `trackingState` is update asynchronously from plane detection when `Debug` is toggled on.
 - [ ] If the app goes into a degraded tracking state after the `baseNode` has been added but before a game has started, it along with any other `planeNodes` will disappear. Once the tracking state becomes normal again, new `planeNodes` will spawn, but the `baseNode` will not be placed automatically. A workaround is to just hit the `Reset` button.
 
+#### Resolved
+- [x] The AR Coaching Overlay might not have taken up the full screen on newer iPhones.
+
 ## Contributors
 Sachin Agrawal: I'm a self-taught programmer who knows many languages and I'm into app, game, and web development. For more information, check out my website or Github profile. If you would like to contact me, my email is [github@sachin.email](mailto:github@sachin.email).
 
