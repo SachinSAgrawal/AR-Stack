@@ -53,7 +53,7 @@ class ViewController: UIViewController, ARCoachingOverlayViewDelegate {
     var sounds = [String: SCNAudioSource]()
     
     // AR coaching overlay view
-    var coachingOverlay: ARCoachingOverlayView?
+    var coachingOverlay: ARCoachingOverlayView!
     
     // Unique key for storing the highest score in user defaults
     var highestScoreKey: String = "StackHighestScore"
@@ -96,18 +96,27 @@ class ViewController: UIViewController, ARCoachingOverlayViewDelegate {
     }
     
     // Function to set up AR coaching overlay view
-    private func setupCoachingOverlay() {
-        coachingOverlay = ARCoachingOverlayView(frame: sceneView.bounds)
-        coachingOverlay?.session = sceneView.session
-        coachingOverlay?.delegate = self
+    func setupCoachingOverlay() {
+        coachingOverlay = ARCoachingOverlayView()
+        coachingOverlay.session = sceneView.session
+        coachingOverlay.delegate = self
         
         // Activate the AR coaching overlay view
-        coachingOverlay?.activatesAutomatically = false
-        coachingOverlay?.goal = .horizontalPlane
-        coachingOverlay?.setActive(true, animated: true)
+        coachingOverlay.activatesAutomatically = false
+        coachingOverlay.goal = .horizontalPlane
+        coachingOverlay.setActive(true, animated: true)
         
         // Add the AR coaching overlay view to the scene view
-        sceneView.addSubview(coachingOverlay!)
+        sceneView.addSubview(coachingOverlay)
+        
+        // Set the coaching overlay to cover the entire screen
+        coachingOverlay.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            coachingOverlay.topAnchor.constraint(equalTo: sceneView.topAnchor),
+            coachingOverlay.leadingAnchor.constraint(equalTo: sceneView.leadingAnchor),
+            coachingOverlay.trailingAnchor.constraint(equalTo: sceneView.trailingAnchor),
+            coachingOverlay.bottomAnchor.constraint(equalTo: sceneView.bottomAnchor)
+        ])
     }
     
     // MARK: View Visibility
@@ -567,11 +576,11 @@ extension ViewController {
         // Check if coaching overlay and play button should be hidden
         if trackingState == ARCamera.TrackingState.limited(.excessiveMotion) || trackingState == ARCamera.TrackingState.limited(.insufficientFeatures) {
             if !playButton.isHidden {
-                coachingOverlay?.setActive(true, animated: true)
+                coachingOverlay.setActive(true, animated: true)
                 playButton.isHidden = true
             }
         } else {
-            coachingOverlay?.setActive(!baseNodeAdded, animated: true)
+            coachingOverlay.setActive(!baseNodeAdded, animated: true)
             if baseNodeAdded && !gameStarted {
                 playButton.isHidden = false
             }
@@ -594,7 +603,7 @@ extension ViewController {
         // Reset boolean toggles controling some game logic and hide the coaching overlay
         baseNodeAdded = false
         gameStarted = false
-        coachingOverlay?.setActive(true, animated: true)
+        coachingOverlay.setActive(true, animated: true)
     }
     
     // MARK: Resetting
@@ -764,7 +773,7 @@ extension ViewController: ARSCNViewDelegate {
                 baseNodeAdded = true
                 
                 // Deactivate the coaching overlay with animation
-                coachingOverlay?.setActive(false, animated: true)
+                coachingOverlay.setActive(false, animated: true)
                 
                 DispatchQueue.main.async {
                     // Then display the enter game button

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
-    <device id="retina4_7" orientation="portrait" appearance="dark"/>
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,11 +13,11 @@
             <objects>
                 <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="Stack_AR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hml-ir-Eee">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ah-A3-gUg">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -25,7 +25,7 @@
                                 </connections>
                             </arscnView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1TR-Oh-zSR">
-                                <rect key="frame" x="123.5" y="523" width="128" height="64"/>
+                                <rect key="frame" x="132.66666666666666" y="674" width="127.99999999999997" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="C31-Ce-6q5"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="128" id="PTg-JL-ily"/>
@@ -37,7 +37,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Initializing AR Tracking" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aik-8U-wO9">
-                                <rect key="frame" x="20" y="611" width="128.5" height="16"/>
+                                <rect key="frame" x="20" y="762" width="128.66666666666666" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="0yw-pe-haf"/>
                                 </constraints>
@@ -48,7 +48,7 @@
                                 <size key="shadowOffset" width="0.5" height="0.5"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="017-0B-8zc">
-                                <rect key="frame" x="177.5" y="40" width="20" height="32"/>
+                                <rect key="frame" x="186.66666666666666" y="79" width="20" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="i5W-EO-uai"/>
                                 </constraints>
@@ -59,7 +59,7 @@
                                 <size key="shadowOffset" width="0.5" height="0.5"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jD6-dj-4xu" userLabel="High Score">
-                                <rect key="frame" x="20" y="40" width="64" height="32"/>
+                                <rect key="frame" x="20" y="79" width="64" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="GOv-NT-7mS"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="64" id="hNL-xr-eqw"/>
@@ -71,7 +71,7 @@
                                 <size key="shadowOffset" width="0.5" height="0.5"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AVk-60-VKj" userLabel="Reset Button">
-                                <rect key="frame" x="291" y="40" width="64" height="32"/>
+                                <rect key="frame" x="309" y="79" width="64" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="64" id="BiQ-rP-iHI"/>
                                     <constraint firstAttribute="height" constant="32" id="ov9-9J-VnT"/>
@@ -83,7 +83,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9d-Wj-5aa" userLabel="Debug Toggle">
-                                <rect key="frame" x="291" y="611" width="64" height="16"/>
+                                <rect key="frame" x="309" y="762" width="64" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="64" id="6XZ-sd-e4e"/>
                                     <constraint firstAttribute="height" constant="16" id="Kgh-QK-cJQ"/>
