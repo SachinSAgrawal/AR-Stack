@@ -189,11 +189,7 @@ class ViewController: UIViewController, ARCoachingOverlayViewDelegate {
         boxNode.position.z = -actionOffet
         boxNode.position.y = Float(boxheight * 0.5 + boxheight)
         boxNode.name = "Block\(height)"
-        let heightMod: CGFloat = CGFloat(height % 27) * 10.0
-        let r: CGFloat = 255.0 - heightMod
-        let g: CGFloat = -0.0156 * ((heightMod * heightMod) - (255.0 * heightMod))
-        let b: CGFloat = heightMod
-        boxNode.geometry?.firstMaterial?.diffuse.contents = UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: 1)
+        boxNode.geometry?.firstMaterial?.diffuse.contents = UIColor(hue: CGFloat(height % 24) * 15.0 / 360, saturation: 0.7, brightness: 0.9, alpha: 1)
         boxNode.physicsBody = SCNPhysicsBody(type: .kinematic, shape: SCNPhysicsShape(geometry: boxNode.geometry!, options: nil))
         gameNode?.addChildNode(boxNode)
     }
@@ -292,11 +288,7 @@ class ViewController: UIViewController, ARCoachingOverlayViewDelegate {
             currentBoxNode.geometry = SCNBox(width: CGFloat(newSize.x), height: boxheight, length: CGFloat(newSize.z), chamferRadius: 0)
             currentBoxNode.position = SCNVector3Make(currentPosition.x + (offset.x/2), currentPosition.y, currentPosition.z + (offset.z/2))
             currentBoxNode.physicsBody = SCNPhysicsBody(type: .kinematic, shape: SCNPhysicsShape(geometry: currentBoxNode.geometry!, options: nil))
-            let heightMod: CGFloat = CGFloat(height % 27) * 10.0
-            let r: CGFloat = 255.0 - heightMod
-            let g: CGFloat = -0.0156 * ((heightMod * heightMod) - (255.0 * heightMod))
-            let b: CGFloat = heightMod
-            currentBoxNode.geometry?.firstMaterial?.diffuse.contents = UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: 1)
+            currentBoxNode.geometry?.firstMaterial?.diffuse.contents = UIColor(hue: CGFloat(height % 24) * 15.0 / 360, saturation: 0.7, brightness: 0.9, alpha: 1)
             
             // Add broken and new blocks, play sound and haptic
             addBrokenBlock(currentBoxNode)
@@ -458,14 +450,8 @@ extension ViewController {
         // Assign a name to the new block node
         newBoxNode.name = "Block\(height+1)"
         
-        // Calculate color components based on height
-        let heightMod: CGFloat = CGFloat((height + 1) % 27) * 10.0 /// Must + 1
-        let r: CGFloat = 255.0 - heightMod
-        let g: CGFloat = -0.0156 * ((heightMod * heightMod) - (255.0 * heightMod))
-        let b: CGFloat = heightMod
-        
         // Apply color to the new block node
-        newBoxNode.geometry?.firstMaterial?.diffuse.contents = UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: 1)
+        newBoxNode.geometry?.firstMaterial?.diffuse.contents = UIColor(hue: CGFloat(height + 1 % 24) * 15.0 / 360, saturation: 0.7, brightness: 0.9, alpha: 1) /// Must + 1
         
         // Add physics body to the new block node
         newBoxNode.physicsBody = SCNPhysicsBody(type: .kinematic, shape: SCNPhysicsShape(geometry: newBoxNode.geometry!, options: nil))
@@ -502,11 +488,7 @@ extension ViewController {
             
             // Add physics body and color to the broken block
             brokenBoxNode.physicsBody = SCNPhysicsBody(type: .dynamic, shape: SCNPhysicsShape(geometry: brokenBoxNode.geometry!, options: nil))
-            let heightMod: CGFloat = CGFloat(height % 27) * 10.0
-            let r: CGFloat = 255.0 - heightMod
-            let g: CGFloat = -0.0156 * ((heightMod * heightMod) - (255.0 * heightMod))
-            let b: CGFloat = heightMod
-            brokenBoxNode.geometry?.firstMaterial?.diffuse.contents = UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: 1)
+            brokenBoxNode.geometry?.firstMaterial?.diffuse.contents = UIColor(hue: CGFloat(height % 24) * 15.0 / 360, saturation: 0.7, brightness: 0.9, alpha: 1)
             gameNode?.addChildNode(brokenBoxNode)
             
         } else if height % 2 != 0 && absoluteOffset.x > 0 {
@@ -523,11 +505,7 @@ extension ViewController {
             
             // Add physics body and color to the broken block
             brokenBoxNode.physicsBody = SCNPhysicsBody(type: .dynamic, shape: SCNPhysicsShape(geometry: brokenBoxNode.geometry!, options: nil))
-            let heightMod: CGFloat = CGFloat(height % 27) * 10.0
-            let r: CGFloat = 255.0 - heightMod
-            let g: CGFloat = -0.0156 * ((heightMod * heightMod) - (255.0 * heightMod))
-            let b: CGFloat = heightMod
-            brokenBoxNode.geometry?.firstMaterial?.diffuse.contents = UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: 1)
+            brokenBoxNode.geometry?.firstMaterial?.diffuse.contents = UIColor(hue: CGFloat(height % 24) * 15.0 / 360, saturation: 0.7, brightness: 0.9, alpha: 1)
             gameNode?.addChildNode(brokenBoxNode)
         }
     }

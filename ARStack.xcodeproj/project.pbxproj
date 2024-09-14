@@ -11,6 +11,7 @@
 		0377A17B2BDC5F1900281989 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0377A1792BDC5F1900281989 /* README.md */; };
 		0377A17D2BDD5C4A00281989 /* demo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0377A17C2BDD5C4A00281989 /* demo.gif */; };
 		03BF67D12A61A50B009F3954 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BF67D02A61A50B009F3954 /* Extensions.swift */; };
+		03F680FA2C94D8F9006EEF43 /* NOTICE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 03F680F92C94D8F9006EEF43 /* NOTICE.txt */; };
 		6CE095231F922EE400495679 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE095221F922EE400495679 /* AppDelegate.swift */; };
 		6CE095251F922EE400495679 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CE095241F922EE400495679 /* art.scnassets */; };
 		6CE095271F922EE400495679 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE095261F922EE400495679 /* ViewController.swift */; };
@@ -24,6 +25,7 @@
 		0377A1792BDC5F1900281989 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0377A17C2BDD5C4A00281989 /* demo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo.gif; sourceTree = "<group>"; };
 		03BF67D02A61A50B009F3954 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		03F680F92C94D8F9006EEF43 /* NOTICE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NOTICE.txt; sourceTree = "<group>"; };
 		6CE0951F1F922EE400495679 /* Stack AR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stack AR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CE095221F922EE400495679 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6CE095241F922EE400495679 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -49,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				0377A1782BDC5F1900281989 /* LICENSE.txt */,
+				03F680F92C94D8F9006EEF43 /* NOTICE.txt */,
 				0377A1792BDC5F1900281989 /* README.md */,
 				0377A17C2BDD5C4A00281989 /* demo.gif */,
 				6CE095211F922EE400495679 /* ARStack */,
@@ -142,6 +145,7 @@
 			files = (
 				0377A17B2BDC5F1900281989 /* README.md in Resources */,
 				0377A17D2BDD5C4A00281989 /* demo.gif in Resources */,
+				03F680FA2C94D8F9006EEF43 /* NOTICE.txt in Resources */,
 				6CE095251F922EE400495679 /* art.scnassets in Resources */,
 				6CE0952F1F922EE400495679 /* LaunchScreen.storyboard in Resources */,
 				6CE0952C1F922EE400495679 /* Assets.xcassets in Resources */,
@@ -237,10 +241,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "Stack AR";
+				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -293,9 +297,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "Stack AR";
+				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -312,8 +316,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 44LNM8FN8U;
 				INFOPLIST_FILE = ARStack/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Stack AR";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -340,8 +345,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 44LNM8FN8U;
 				INFOPLIST_FILE = ARStack/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Stack AR";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

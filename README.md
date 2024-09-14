@@ -6,11 +6,11 @@
 This app brings the popular game [Stack](https://apps.apple.com/us/app/stack/id1080487957) in the real world with Augmented Reality. If you like this app or found it useful, I would appreciate if you starred it or even shared it with your friends. I don't expect to work on this too much more, as it was my first venture into AR and I came back to it because I had some free time.
 
 ## Acknowledgments
-The bulk of this code was written by [Xander Xu](https://github.com/XanderXu/ARStack) in his tutorial. Because of the permissive free software license he included, I have taken the code and improved upon it. The basic functionality and logic is not mine, however, so most of the credit should go to him. If you would like to modify this app further, you are more than welcome to, as the same license is included.
+The bulk of this code was written by [Xander Xu](https://github.com/XanderXu/ARStack) in his tutorial. Because the Apache-2.0 license was included, I have taken the code and improved upon it. The basic functionality and logic is not mine, however, so most of the credit should go to him. If you would like to modify this app further, you are more than welcome to, as the same license is included, as long as all the rules regarding copyright, distribution, etc are followed.
 
-## Improvements
+## Changes
 * The app shows you all detected planes and allows you to move the game location to within any of them.
-* The blocks now cycle through a beautiful rainbow of colors as opposed to being seemingly random. 
+* The blocks now cycle through a nice rainbow of pastel colors as opposed to being seemingly random. 
 * The session information label, debug options, and FPS bar have been hidden under the `Debug` button.
 * The AR Coaching Overlay view has been added to aid with establishing the scene instead.
 * A slight shadow has been added to the text so it is hopefully easier to see.
@@ -46,7 +46,8 @@ The device must be either an iPhone or iPad running iOS 16.0 or newer.
 If you find any, feel free to open up a new issue or even better, create a pull request fixing it.
 
 #### Known
-- [ ] Sounds are sometimes unreliable, which is partially why I added haptics.
+- [ ] The game may stutter upon stacking the first block.
+- [ ] Sounds are sometimes unreliable; partially solved using haptics.
 - [ ] The session information label may say that no planes have been detected even though some have been because the `trackingState` is update asynchronously from plane detection when `Debug` is toggled on.
 - [ ] If the app goes into a degraded tracking state after the `baseNode` has been added but before a game has started, it along with any other `planeNodes` will disappear. Once the tracking state becomes normal again, new `planeNodes` will spawn, but the `baseNode` will not be placed automatically. A workaround is to just hit the `Reset` button.
 
