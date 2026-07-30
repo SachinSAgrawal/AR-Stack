@@ -3,7 +3,7 @@
 ![demo](demo.gif)
 
 ## About
-This app brings the popular game [Stack](https://apps.apple.com/us/app/stack/id1080487957) in the real world with Augmented Reality. If you like this app or found it useful, I would appreciate if you starred it or even shared it with your friends. I don't expect to work on this too much more, as it was my first venture into AR and I came back to it because I had some free time.
+This app brings the popular game [Stack](https://apps.apple.com/us/app/stack/id1080487957) into the real world with Augmented Reality. If you like this app or found it useful, I would appreciate if you starred it or even shared it with your friends. I don't expect to work on this too much more, as it was my first venture into AR and I came back to it because I had some free time.
 
 ## Acknowledgments
 The bulk of this code was written by [Xander Xu](https://github.com/XanderXu/ARStack) in his tutorial. Because the Apache-2.0 license was included, I have taken the code and improved upon it. The basic functionality and logic is not mine, however, so most of the credit should go to him. If you would like to modify this app further, you are more than welcome to, as the same license is included, as long as all the rules regarding copyright, distribution, etc are followed.
@@ -16,12 +16,12 @@ The bulk of this code was written by [Xander Xu](https://github.com/XanderXu/ARS
 * A slight shadow has been added to the text so it is hopefully easier to see.
 * The `GameScene` was raised so the game never goes below the plane you are playing it on.
 * In addition to sounds, there are also some slight haptics that you can feel.
-* Person segmentation has been added while a game is active so you hand could be occluded.
+* Person segmentation has been added while a game is active so your hand could be occluded.
 * The app now displays your high score in the top left. Can you beat my record of 51?
 * There is now an app icon, which I might have taken from the original Stack game.
 * The launch screen is a little bit nicer and the main screen takes up the full screen.
-* The app's settings have been update according to Xcode's recommendations.
-* The code itself has be commented fully with the help of ChatGPT, and `MARK` lines label each section.
+* The app's settings have been updated according to Xcode's recommendations.
+* The code itself has been commented fully with the help of ChatGPT, and `MARK` lines label each section.
 
 ## Installation
 1. Clone this repository or download it as a zip folder and uncompress it.
@@ -45,14 +45,18 @@ The device must be either an iPhone or iPad running iOS 16.0 or newer.
 ## Bugs
 If you find any, feel free to open up a new issue or even better, create a pull request fixing it.
 
-#### Known
-- [ ] The game may stutter upon stacking the first block.
-- [ ] Sounds are sometimes unreliable; partially solved using haptics.
-- [ ] The session information label may say that no planes have been detected even though some have been because the `trackingState` is update asynchronously from plane detection when `Debug` is toggled on.
-- [ ] If the app goes into a degraded tracking state after the `baseNode` has been added but before a game has started, it along with any other `planeNodes` will disappear. Once the tracking state becomes normal again, new `planeNodes` will spawn, but the `baseNode` will not be placed automatically. A workaround is to just hit the `Reset` button.
-
 #### Resolved
-- [x] The AR Coaching Overlay might not have taken up the full screen on newer iPhones.
+- [x] *Coaching Overlay:* might not have taken up the full screen on larger iPhones.
+- [x] *Sound Overhaul:* per-effect `AVAudioPlayer`s running off the main thread on a `.playback` session.
+- [x] *First-Block Stutter:* pre-warmed feedback generators instead of one per event.
+- [x] *UIScene Launch Crash:* adopted the `UIScene` life cycle newer SDKs require.
+- [x] *First-Install First-Tap Freeze:* wait for camera access before `session.run`.
+- [x] *Crashes Fixed:* people-occlusion `fatalError`, a mid-game render-thread race, and `currentFrame` force-unwraps.
+- [x] *Slice Glitches:* fixed a tap/render-loop race that misaligned layers and a white flash from the new `SCNBox`.
+- [x] *Status UI In Sync:* information label, coaching overlay, and Play button now always update together.
+- [x] *Degraded-Tracking Recovery:* content rebuilds on recovery and plane detection re-enables after a game.
+- [x] *Game Never Paused:* taps and block movement now gated on `trackingState` until it recovers.
+- [x] *Label Alignment:* fixed the debug button's `contentVerticalAlignment` to match that of the status's.
 
 ## Contributors
 Sachin Agrawal: I'm a self-taught programmer who knows many languages and I'm into app, game, and web development. For more information, check out my website or Github profile. If you would like to contact me, my email is [github@sachin.email](mailto:github@sachin.email).
@@ -61,7 +65,7 @@ Sachin Agrawal: I'm a self-taught programmer who knows many languages and I'm in
 This package is licensed under the [Apache License](LICENSE.txt).
 
 ```
-Copyright 2023-2024 Sachin Agrawal
+Copyright 2023-2026 Sachin Agrawal
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

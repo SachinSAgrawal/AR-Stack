@@ -82,7 +82,7 @@
                                     <action selector="resetButtonClick:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Dtv-XW-xRu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9d-Wj-5aa" userLabel="Debug Toggle">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9d-Wj-5aa" userLabel="Debug Toggle">
                                 <rect key="frame" x="309" y="762" width="64" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="64" id="6XZ-sd-e4e"/>

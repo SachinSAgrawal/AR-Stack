@@ -18,6 +18,7 @@
 		6CE0952A1F922EE400495679 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CE095281F922EE400495679 /* Main.storyboard */; };
 		6CE0952C1F922EE400495679 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CE0952B1F922EE400495679 /* Assets.xcassets */; };
 		6CE0952F1F922EE400495679 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CE0952D1F922EE400495679 /* LaunchScreen.storyboard */; };
+		A1B2C3D4E5F600000000A002 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F600000000A001 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		6CE0952B1F922EE400495679 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6CE0952E1F922EE400495679 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6CE095301F922EE400495679 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1B2C3D4E5F600000000A001 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			children = (
 				6CE095261F922EE400495679 /* ViewController.swift */,
 				6CE095221F922EE400495679 /* AppDelegate.swift */,
+				A1B2C3D4E5F600000000A001 /* SceneDelegate.swift */,
 				03BF67D02A61A50B009F3954 /* Extensions.swift */,
 				6CE095281F922EE400495679 /* Main.storyboard */,
 				6CE0952D1F922EE400495679 /* LaunchScreen.storyboard */,
@@ -164,6 +167,7 @@
 				6CE095271F922EE400495679 /* ViewController.swift in Sources */,
 				03BF67D12A61A50B009F3954 /* Extensions.swift in Sources */,
 				6CE095231F922EE400495679 /* AppDelegate.swift in Sources */,
+				A1B2C3D4E5F600000000A002 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,7 +318,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 44LNM8FN8U;
+				DEVELOPMENT_TEAM = LP92N2QT42;
 				INFOPLIST_FILE = ARStack/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Stack AR";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
@@ -324,7 +328,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ChristianLourido.ARStack;
+				PRODUCT_BUNDLE_IDENTIFIER = SachinAgrawal.ARStack;
 				PRODUCT_NAME = "Stack AR";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -343,7 +347,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 44LNM8FN8U;
+				DEVELOPMENT_TEAM = LP92N2QT42;
 				INFOPLIST_FILE = ARStack/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Stack AR";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
@@ -353,7 +357,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ChristianLourido.ARStack;
+				PRODUCT_BUNDLE_IDENTIFIER = SachinAgrawal.ARStack;
 				PRODUCT_NAME = "Stack AR";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

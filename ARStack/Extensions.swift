@@ -13,6 +13,7 @@ extension SCNNode {
         // Calculate the bounding box of the node's geometry
         let (min, max) = boundingBox
         let extents = ((max) - (min))
+
         // Set the pivot of the node's transform to center align its child nodes
         simdPivot = float4x4(translation: SIMD3((extents / 2) + (min)))
     }
@@ -45,7 +46,7 @@ extension Int {
 }
 
 // Extension of SCNVector3 to see if it is equatable
-extension SCNVector3: Equatable {
+extension SCNVector3: @retroactive Equatable {
     public static func == (lhs: SCNVector3, rhs: SCNVector3) -> Bool {
         return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z
     }
