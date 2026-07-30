@@ -2,7 +2,8 @@
 //  ViewController.swift
 //  ARStack
 //
-//  Created by Sachin Agrawal on 7/10/23.
+//  Created by Xander Xu on 2017/10/14.
+//  Modified by Sachin Agrawal under Apache-2.0.
 //
 
 import UIKit

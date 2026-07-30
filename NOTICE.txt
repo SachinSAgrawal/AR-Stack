@@ -1,5 +1,5 @@
 AR Stack
-Copyright 2023-2024 Sachin Agrawal
+Copyright 2023-2026 Sachin Agrawal
 
 This product includes software developed by
 Xander Xu – (https://github.com/XanderXu/ARStack)
