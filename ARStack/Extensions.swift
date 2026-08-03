@@ -6,6 +6,7 @@
 //
 
 import SceneKit
+import UIKit
 
 // Extension of SCNNode to provide a method for center aligning its child nodes
 extension SCNNode {
@@ -54,6 +55,23 @@ extension SCNVector3: @retroactive Equatable {
     // Define inequality based on equality
     public static func != (lhs: SCNVector3, rhs: SCNVector3) -> Bool {
         return !(lhs == rhs)
+    }
+}
+
+// Extension of UIColor to mix two colors together
+extension UIColor {
+    func blended(with color: UIColor, fraction: CGFloat) -> UIColor {
+        // Pull the components out of both colors
+        var r1: CGFloat = 0, g1: CGFloat = 0, b1: CGFloat = 0, a1: CGFloat = 0
+        var r2: CGFloat = 0, g2: CGFloat = 0, b2: CGFloat = 0, a2: CGFloat = 0
+        getRed(&r1, green: &g1, blue: &b1, alpha: &a1)
+        color.getRed(&r2, green: &g2, blue: &b2, alpha: &a2)
+
+        // Walk each component the given fraction of the way to the second color
+        return UIColor(red: r1 + (r2 - r1) * fraction,
+                       green: g1 + (g2 - g1) * fraction,
+                       blue: b1 + (b2 - b1) * fraction,
+                       alpha: a1 + (a2 - a1) * fraction)
     }
 }
 

@@ -10,7 +10,7 @@ The bulk of this code was written by [Xander Xu](https://github.com/XanderXu/ARS
 
 ## Changes
 * The app shows you all detected planes and allows you to move the game location to within any of them.
-* The blocks now cycle through a nice rainbow of pastel colors as opposed to being seemingly random. 
+* The blocks now cycle through a random series of colors matched to the original game.
 * The session information label, debug options, and FPS bar have been hidden under the `Debug` button.
 * The AR Coaching Overlay view has been added to aid with establishing the scene instead.
 * A slight shadow has been added to the text so it is hopefully easier to see.

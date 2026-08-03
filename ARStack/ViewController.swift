@@ -19,6 +19,45 @@ let boxLengthWidth: CGFloat = 0.4
 let actionOffet: Float = 0.6
 let actionSpeed: Float = 0.011
 
+// Palette the blocks are colored from, sampled off the original game
+let colorPalette: [UIColor] = [
+    UIColor(red: 0.68, green: 0.94, blue: 0.55, alpha: 1),
+    UIColor(red: 0.62, green: 0.96, blue: 0.83, alpha: 1),
+    UIColor(red: 0.44, green: 0.74, blue: 0.55, alpha: 1),
+    UIColor(red: 0.31, green: 0.56, blue: 0.51, alpha: 1),
+    UIColor(red: 0.22, green: 0.47, blue: 0.46, alpha: 1),
+    UIColor(red: 0.42, green: 0.47, blue: 0.53, alpha: 1),
+    UIColor(red: 0.19, green: 0.63, blue: 0.74, alpha: 1),
+    UIColor(red: 0.38, green: 0.76, blue: 0.93, alpha: 1),
+    UIColor(red: 0.60, green: 0.82, blue: 1.00, alpha: 1),
+    UIColor(red: 0.16, green: 0.32, blue: 0.55, alpha: 1),
+    UIColor(red: 0.52, green: 0.58, blue: 0.87, alpha: 1),
+    UIColor(red: 0.66, green: 0.53, blue: 0.87, alpha: 1),
+    UIColor(red: 0.35, green: 0.20, blue: 0.52, alpha: 1),
+    UIColor(red: 0.72, green: 0.46, blue: 0.82, alpha: 1),
+    UIColor(red: 0.94, green: 0.57, blue: 0.70, alpha: 1),
+    UIColor(red: 0.80, green: 0.22, blue: 0.24, alpha: 1),
+    UIColor(red: 0.97, green: 0.49, blue: 0.50, alpha: 1),
+    UIColor(red: 0.45, green: 0.29, blue: 0.18, alpha: 1),
+    UIColor(red: 0.87, green: 0.44, blue: 0.24, alpha: 1),
+    UIColor(red: 1.00, green: 0.65, blue: 0.54, alpha: 1),
+    UIColor(red: 0.95, green: 0.79, blue: 0.46, alpha: 1),
+    UIColor(red: 1.00, green: 0.94, blue: 0.63, alpha: 1),
+    UIColor(red: 0.73, green: 0.93, blue: 0.50, alpha: 1)
+]
+
+// How far along the palette each block moves, matching the gradient of the original
+let colorStep: CGFloat = 0.25
+
+// How often a block skips ahead in the palette instead of taking the normal step
+let colorSkipChance = 0.2
+
+// How many steps a skip jumps ahead by
+let colorSkipRange = 4...8
+
+// How many blocks a skip is spread over so it fades in instead of cutting
+let colorSkipBlocks = 4
+
 class ViewController: UIViewController, ARCoachingOverlayViewDelegate {
     // UI Outlets
     @IBOutlet var sceneView: ARSCNView!
@@ -30,15 +69,17 @@ class ViewController: UIViewController, ARCoachingOverlayViewDelegate {
     @IBOutlet weak var debugToggle: UIButton!
     
     // Nodes for managing the AR scene
-    var baseNode: SCNNode?          /// Represents the base of the game
-    var gameNode: SCNNode?          /// Node for all game elements
-    var baseNodeAdded = false       /// Has the base node been added
+    var baseNode: SCNNode?              /// Represents the base of the game
+    var gameNode: SCNNode?              /// Node for all game elements
+    var baseNodeAdded = false           /// Has the base node been added
     
     // Game variables
-    var direction = true            /// Direction of block movement
-    var gameStarted = false         /// Boolean for if game has started
-    var height = 0                  /// Height of the stacked blocks
-    var perfectMatches = 0          /// Counter for perfect matches
+    var direction = true                /// Direction of block movement
+    var gameStarted = false             /// Boolean for if game has started
+    var height = 0                      /// Height of the stacked blocks
+    var perfectMatches = 0              /// Counter for perfect matches
+    var colorOffset: CGFloat = 0        /// Where in the palette this game starts
+    var colorPositions = [CGFloat]()    /// Palette position of every block placed
     
     // Variables for block size and position calculation
     var previousPosition = SCNVector3(0, boxheight*0.5, 0)
@@ -236,7 +277,7 @@ class ViewController: UIViewController, ARCoachingOverlayViewDelegate {
         boxNode.position.z = -actionOffet
         boxNode.position.y = Float(boxheight * 0.5 + boxheight)
         boxNode.name = "Block\(height)"
-        boxNode.geometry?.firstMaterial?.diffuse.contents = UIColor(hue: CGFloat(height % 24) * 15.0 / 360, saturation: 0.7, brightness: 0.9, alpha: 1)
+        boxNode.geometry?.firstMaterial?.diffuse.contents = blockColor(height)
         boxNode.physicsBody = SCNPhysicsBody(type: .kinematic, shape: SCNPhysicsShape(geometry: boxNode.geometry!, options: nil))
         gameNode?.addChildNode(boxNode)
     }
@@ -337,7 +378,7 @@ class ViewController: UIViewController, ARCoachingOverlayViewDelegate {
             
             // Swap in the recolored geometry without animation to avoid a white flash
             let slicedGeometry = SCNBox(width: CGFloat(newSize.x), height: boxheight, length: CGFloat(newSize.z), chamferRadius: 0)
-            slicedGeometry.firstMaterial?.diffuse.contents = UIColor(hue: CGFloat(height % 24) * 15.0 / 360, saturation: 0.7, brightness: 0.9, alpha: 1)
+            slicedGeometry.firstMaterial?.diffuse.contents = blockColor(height)
             SCNTransaction.begin()
             SCNTransaction.disableActions = true
             currentBoxNode.geometry = slicedGeometry
@@ -545,8 +586,37 @@ extension ViewController {
         refreshSessionUI()
     }
     
+    // MARK: Block Colors
+
+    // Function to get the color of the block at a given height
+    func blockColor(_ blockHeight: Int) -> UIColor {
+        // Walk the palette forward until this block has a position, the walk never doubles back
+        while colorPositions.count <= blockHeight {
+            let last = colorPositions[colorPositions.count-1]
+
+            if Double.random(in: 0..<1) < colorSkipChance {
+                // Skips cover more ground but are spread over a few blocks so the change eases in
+                let skip = colorStep * CGFloat(Int.random(in: colorSkipRange))
+                for block in 1...colorSkipBlocks {
+                    colorPositions.append(last + skip * CGFloat(block) / CGFloat(colorSkipBlocks))
+                }
+            } else {
+                // Everything else takes the normal step
+                colorPositions.append(last + colorStep)
+            }
+        }
+
+        // Wrap the walk back into the palette
+        let position = colorPositions[blockHeight].truncatingRemainder(dividingBy: CGFloat(colorPalette.count))
+        let index = Int(position)
+        let nextIndex = (index + 1) % colorPalette.count
+
+        // Blend between the two palette colors the block falls between
+        return colorPalette[index].blended(with: colorPalette[nextIndex], fraction: position - CGFloat(index))
+    }
+
     // MARK: New Blocks
-    
+
     // Function to add a new block to the scene
     func addNewBlock(_ currentBoxNode: SCNNode) {
         // Create a new block node with dimensions based on the current size
@@ -559,7 +629,7 @@ extension ViewController {
         newBoxNode.name = "Block\(height+1)"
         
         // Apply color to the new block node
-        newBoxNode.geometry?.firstMaterial?.diffuse.contents = UIColor(hue: CGFloat((height + 1) % 24) * 15.0 / 360, saturation: 0.7, brightness: 0.9, alpha: 1) /// Must + 1
+        newBoxNode.geometry?.firstMaterial?.diffuse.contents = blockColor(height + 1) /// Must + 1
         
         // Add physics body to the new block node
         newBoxNode.physicsBody = SCNPhysicsBody(type: .kinematic, shape: SCNPhysicsShape(geometry: newBoxNode.geometry!, options: nil))
@@ -599,7 +669,7 @@ extension ViewController {
             
             // Add physics body and color to the broken block
             brokenBoxNode.physicsBody = SCNPhysicsBody(type: .dynamic, shape: SCNPhysicsShape(geometry: brokenBoxNode.geometry!, options: nil))
-            brokenBoxNode.geometry?.firstMaterial?.diffuse.contents = UIColor(hue: CGFloat(height % 24) * 15.0 / 360, saturation: 0.7, brightness: 0.9, alpha: 1)
+            brokenBoxNode.geometry?.firstMaterial?.diffuse.contents = blockColor(height)
             gameNode?.addChildNode(brokenBoxNode)
             brokenBoxNode.physicsBody?.resetTransform()
 
@@ -617,7 +687,7 @@ extension ViewController {
             
             // Add physics body and color to the broken block
             brokenBoxNode.physicsBody = SCNPhysicsBody(type: .dynamic, shape: SCNPhysicsShape(geometry: brokenBoxNode.geometry!, options: nil))
-            brokenBoxNode.geometry?.firstMaterial?.diffuse.contents = UIColor(hue: CGFloat(height % 24) * 15.0 / 360, saturation: 0.7, brightness: 0.9, alpha: 1)
+            brokenBoxNode.geometry?.firstMaterial?.diffuse.contents = blockColor(height)
             gameNode?.addChildNode(brokenBoxNode)
             brokenBoxNode.physicsBody?.resetTransform()
         }
@@ -728,6 +798,9 @@ extension ViewController {
         sceneView.scene.rootNode.enumerateChildNodes { node, _ in
             if node.name == "MeshNode" {
                 node.isHidden = !shouldShow
+
+                // Keep the mesh's instruction label in sync with it
+                node.parent?.childNode(withName: "TextNode", recursively: false)?.isHidden = !shouldShow
             }
         }
     }
@@ -830,6 +903,10 @@ extension ViewController {
         offset = SCNVector3Zero
         absoluteOffset = SCNVector3Zero
         newSize = SCNVector3Zero
+
+        // Start each game somewhere else in the palette so every run gets its own colors
+        colorOffset = CGFloat.random(in: 0..<CGFloat(colorPalette.count))
+        colorPositions = [colorOffset]
     }
 }
 
